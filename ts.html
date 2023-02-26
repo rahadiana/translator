@@ -6,12 +6,12 @@
 	});
 	var CloseTag = ' rahadiana-github-io.translate.goog';
 	const val = params.q;  
-	val.substring(7, 0) == "http://" ? Axi(val) : val.substring(8, 0) == "https://" ? Axi(val) : document.getElementById("content").innerHTML = val+CloseTag;
+	val.substring(7, 0) == "http://" ? Axi(val) : val.substring(8, 0) == "https://" ? Axi(val) : document.getElementById("content").innerHTML = val //+CloseTag;
 	
 	function Axi(val) {
 		axios.get(val).then(function (response){
 			const header = response.headers['content-type']
-			document.getElementById("content").innerHTML = header.includes("json") == true ? JSON.stringify(response.data)+CloseTag:response.data+CloseTag
+			document.getElementById("content").innerHTML = header.includes("json") == true ? JSON.stringify(response.data)+CloseTag:response.data //+CloseTag
 		}).catch(function(error) {
 			document.getElementById("content").innerHTML = "Dаtа саnnot fеtch";
 		});
