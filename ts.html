@@ -11,7 +11,7 @@
 	function Axi(val) {
 		axios.get(val).then(function (response){
 			const header = response.headers['content-type']
-			document.getElementById("content").innerHTML = header.includes("json") == true ? JSON.stringify(response.data):response.data //+CloseTag:response.data //+CloseTag
+			document.getElementById("content").innerHTML = header.includes("json") || header.endsWith('.json') == true ? JSON.stringify(response.data):response.data //+CloseTag:response.data //+CloseTag
 		}).catch(function(error) {
 			document.getElementById("content").innerHTML = "Dаtа саnnot fеtch";
 		});
